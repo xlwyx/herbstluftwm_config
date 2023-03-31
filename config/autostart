@@ -18,11 +18,16 @@ hc emit_hook reload
 
 # AUTOSTART #
 #-----------#
-picom --experimental-backend &
-lxsession &
+setxkbmap -layout 'es' &
+picom -cCFG &
+feh --bg-scale $HOME/Pictures/piccas_img/Cute-Anime-Wallpapers-Desktop-Background.jpg &
+exec ~/./pipewire-pulse &
+xscreensaver -nosplash &
+fcitx -s 3 &
+
+#lxsession &
 #nitrogen --random --set-scaled &
-xwallpaper --zoom ~/Pictures/wallpaper/brand_wallpapers/jl.png
-#conky -c /home/jake/.config/conky/herbs.conkyrc &
+
 
 # REMOVE ALL EXISTING KEYBINDINGS #
 #---------------------------------#
