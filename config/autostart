@@ -3,13 +3,13 @@
 #                 PROJECT NAME: HERBSTLUFTWM   
 #                      
 # Config file:        ~/.config/herbstluftwm/autostart
-# Started On:         Thu  9 Sep 13:23:04 CDT 2021#
-# Last Change:        Thu  9 Sep 13:23:04 CDT 2021#
+# Started On:         Fri 31 Mar 19:10:04 CDT 2021#
+# Last Change:        Fri 31 Mar 19:50:09 CDT 2021#
 # Author E-Mail:      xx_xarehnass_x@yahoo.com
-# Author GitHub:      https://github.com/jxlwyx
-# Author Gitlab:      https://gitlab.com/bitX
-#------------------------------------------------------------------------------#
+# Author GitHub:      https://github.com/xlwyx
 
+#------------------------------------------------------------------------------#
+#
 hc() {
     herbstclient "$@"
 }
@@ -24,10 +24,7 @@ feh --bg-scale $HOME/Pictures/piccas_img/Cute-Anime-Wallpapers-Desktop-Backgroun
 exec ~/./pipewire-pulse &
 xscreensaver -nosplash &
 fcitx -s 3 &
-exec ~/.config/polybar/launcher.sh &
-
 #lxsession &
-#nitrogen --random --set-scaled &
 
 
 # REMOVE ALL EXISTING KEYBINDINGS #
@@ -41,13 +38,9 @@ Mod=Mod4   # Use the super key as the main modifier
 
 # System controls #
 #-----------------#
-hc keybind $Mod-Shift-c spawn arcolinux-logout
 hc keybind $Mod-Control-r reload
 hc keybind $Mod-Shift-q close
-hc keybind $Mod-Shift-Return spawn "${TERMINAL:-alacritty}" # use your $TERMINAL with xterm as fallback
-hc keybind $Mod-Control-c spawn $HOME/scripts/herbstchanger
-hc keybind $Mod-Control-t spawn $HOME/scripts/changer 
-hc keybind $Mod-t spawn alacritty -e ./scripts/schedule.sh
+hc keybind $Mod-Shift-Return spawn "${TERMINAL:-kitty}" # use your $TERMINAL with xterm as fallback
 
 # multimedia #
 #------------#
@@ -64,11 +57,12 @@ hc keybind $Mod-Control-s spawn playerctl stop
 # programs #
 # #--------#
 hc keybind $Mod-Shift-w spawn bgd
-hc keybind $Mod-Control-t spawn alacritty -e "$HOME/scripts/changer"
 
 # run launchers #
 #---------------#
-hc keybind $Mod-Shift-d spawn dmenu_run -p Execute: -fn Roboto -c -g 2 -l 10 -nb '#222222' -sb '#000000' -sf '#6f7a76' -nf '#076678'
+hc keybind $Mod-Shift-d spawn dmenu_run
+#hc keybind $Mod-Shift-r spawn rofi -show drun
+#hc keybind $Mod-Control-e spawn rofi -show emoji
 hc keybind $Mod-Shift-e spawn ~/./mycelaneos
 hc keybind $Mod-Shift-i spawn ~/./shutdown
 
@@ -153,9 +147,9 @@ hc keybind $Mod-i jumpto urgent
 # MOUSE #
 #-------#
 hc mouseunbind --all
-hc mousebind $Mod-Button1 resize
+hc mousebind $Mod-Button1 move
 hc mousebind $Mod-Button2 zoom
-hc mousebind $Mod-Button3 move
+hc mousebind $Mod-Button3 resize
 
 # THEME #
 #-------#
@@ -165,11 +159,11 @@ hc set frame_border_active_color '#222222'
 hc set frame_border_normal_color '#101010'
 hc set frame_bg_normal_color '#565656'
 hc set frame_bg_active_color '#345F0C'
-hc set frame_border_width 1
+hc set frame_border_width 2
 hc set always_show_frame 0
 hc set frame_bg_transparent 1
 hc set frame_transparent_width 0
-hc set frame_gap 0
+hc set frame_gap 2
 
 hc attr theme.normal.color '#5f87af'
 hc attr theme.active.color '#afffd7'
@@ -209,11 +203,10 @@ hc set tree_style '╾│ ├└╼─┐'
 #--------#
 hc unlock
 
-
 # FIND THE PANEL #
 #----------------#
-panel=~/.config/herbstluftwm/panel.sh
-[ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
+panel=~/.config/dzen2.sh
+[ -x "$panel" ] || panel=~/.config/dzen2.sh
 for monitor in $(hc list_monitors | cut -d: -f1) ; do
     # start it on each monitor
     "$panel" "$monitor" &
