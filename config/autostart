@@ -5,11 +5,11 @@
 # Config file:        ~/.config/herbstluftwm/autostart
 # Started On:         Thu  9 Sep 13:23:04 CDT 2021#
 # Last Change:        Thu  9 Sep 13:23:04 CDT 2021#
-# Author E-Mail:      jake@jpedmedia.com
-# Author GitHub:      https://github.com/jdpedersen1
-# Author Gitlab:      https://gitlab.com/jped
+# Author E-Mail:      xx_xarehnass_x@yahoo.com
+# Author GitHub:      https://github.com/jxlwyx
+# Author Gitlab:      https://gitlab.com/bitX
 #------------------------------------------------------------------------------#
-#
+
 hc() {
     herbstclient "$@"
 }
@@ -24,6 +24,7 @@ feh --bg-scale $HOME/Pictures/piccas_img/Cute-Anime-Wallpapers-Desktop-Backgroun
 exec ~/./pipewire-pulse &
 xscreensaver -nosplash &
 fcitx -s 3 &
+exec ~/.config/polybar/launcher.sh &
 
 #lxsession &
 #nitrogen --random --set-scaled &
@@ -68,14 +69,12 @@ hc keybind $Mod-Control-t spawn alacritty -e "$HOME/scripts/changer"
 # run launchers #
 #---------------#
 hc keybind $Mod-Shift-d spawn dmenu_run -p Execute: -fn Roboto -c -g 2 -l 10 -nb '#222222' -sb '#000000' -sf '#6f7a76' -nf '#076678'
-hc keybind $Mod-Shift-r spawn rofi -show drun
-hc keybind $Mod-Control-e spawn rofi -show emoji
 hc keybind $Mod-Shift-e spawn ~/./mycelaneos
 hc keybind $Mod-Shift-i spawn ~/./shutdown
 
 # browsers #
 #----------#
-hc keybind $Mod-Shift-a spawn firefox
+hc keybind $Mod-Shift-b spawn firefox
 hc keybind $Mod-Shift-s spawn firefox www.suckless.org
 
 # focusing client #
