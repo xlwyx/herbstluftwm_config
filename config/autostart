@@ -7,6 +7,8 @@
 # Last Change:        Fri 31 Mar 19:50:09 CDT 2021#
 # Author E-Mail:      xx_xarehnass_x@yahoo.com
 # Author GitHub:      https://github.com/xlwyx
+# Author Gitlab       https://gitlab.com/bitX
+
 
 #------------------------------------------------------------------------------#
 #
@@ -20,8 +22,8 @@ hc emit_hook reload
 #-----------#
 setxkbmap -layout 'es' &
 picom -cCFG &
-feh --bg-scale $HOME/Pictures/piccas_img/Cute-Anime-Wallpapers-Desktop-Background.jpg &
-exec ~/./pipewire-pulse &
+feh --bg-scale $HOME/Pictures/piccas_img/Lubāns_ēzers.webp &
+exec pulseaudio -D &
 xscreensaver -nosplash &
 fcitx -s 3 &
 #lxsession &
@@ -187,7 +189,7 @@ hc set mouse_recenter_gap 0
 # RULES ##
 #-------#
 hc unrule -F
-#hc rule class=XTerm tag=3 # move all kitty to tag 3
+hc rule class=kitty tag=3 # move all kitty to tag 3
 hc rule focus=on # normally focus new clients
 hc rule floatplacement=smart
 #hc rule focus=off # normally do not focus new clients
