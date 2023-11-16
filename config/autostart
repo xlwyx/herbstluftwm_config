@@ -22,7 +22,7 @@ hc emit_hook reload
 #-----------#
 setxkbmap -layout 'es' &
 picom -cCFG &
-feh --bg-scale $HOME/Pictures/piccas_img/Lubāns_ēzers.webp &
+feh --bg-scale $HOME/Pictures/piccas_img/Akna_avank.jpg &
 exec pulseaudio -D &
 xscreensaver -nosplash &
 fcitx -s 3 &
@@ -42,7 +42,7 @@ Mod=Mod4   # Use the super key as the main modifier
 #-----------------#
 hc keybind $Mod-Control-r reload
 hc keybind $Mod-Shift-q close
-hc keybind $Mod-Shift-Return spawn "${TERMINAL:-kitty}" # use your $TERMINAL with xterm as fallback
+hc keybind $Mod-Shift-Return spawn "${TERMINAL:-alacritty}" # use your $TERMINAL with xterm as fallback
 
 # multimedia #
 #------------#
